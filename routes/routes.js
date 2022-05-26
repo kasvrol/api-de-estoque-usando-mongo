@@ -1,26 +1,15 @@
-const express = require('express')
-const db = require('../config/dbConnect')
-const app = express();
+const livrosControllers = require('../controllers/livrosController');
 
-const livrosApp = () => {
-    const livros = [
-        { id: 1, 'titulo': 'Senhor dos anéis' },
-        { id: 2, 'titulo': 'O Hobbit' }
-    ]
+const routers = (app) => {
+    app.put('/livros/:id', livrosControllers.putLivros);
 
-    app.get('/', (request, response) => {
-        response.status(200).send('Curso de Node')
-    })
+    app.post('/livros', livrosControllers.postLivros);
 
-    app.post('/livros', (request, response) => {
-        livros.push(request.body)
-        response.status(201).send('Ivro cadastrado com sucesso')
-    })
+    app.get('/livros', livrosControllers.getLivros);
 
-    app.put('/livros/:id', (request, response) => {
-        livros.push(request.body)
-        response.status(201).send('Ivro cadastrado com sucesso')
-    })
+    app.get('/livros/:id', livrosControllers.getIdLivros);
+
+    app.delete('/livros/:id', livrosControllers.deleteLivros);
 }
 
-exports.modules = livrosApp;
+module.exports = routers;
