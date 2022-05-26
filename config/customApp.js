@@ -11,8 +11,9 @@ const customApp = (app) => {
         response.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
         response.header('Access-Control-Allow-Headers', 'Acess, Content-type, Authorization, Acept');
 
-        next()
         app.use(cors());
+
+        next()
     })
 
     routers(app)

@@ -1,4 +1,4 @@
-const livrosControllers = require('../controllers/livrosController');
+const livrosControllers = require('../controller/livrosController');
 
 const routers = (app) => {
     app.put('/livros/:id', livrosControllers.putLivros);

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('../controller/livrosController');
+require('../models/Livros');
 
 const db = mongoose.connect('mongodb://localhost/estoqueDeLivros', {
     useNewUrlParser: true,
@@ -7,5 +7,3 @@ const db = mongoose.connect('mongodb://localhost/estoqueDeLivros', {
 }).then(() => {
     console.log('Conexão com mongo realizada com sucesso')
 }).catch(() => { console.log('Perda da conexão com o Mongo') })
-
-exports.modules = db

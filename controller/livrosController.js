@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const livros = mongoose.model('livro')
+const Livro = mongoose.model('Livro')
 
 exports.getLivros = (request, response) => {
-    livros.find({}).then((livros) => {
+    Livro.find({}).then((livros) => {
         return response.json(livros)
     }).catch((error) => {
         return response.json(400).json({
@@ -13,7 +13,7 @@ exports.getLivros = (request, response) => {
 }
 
 exports.getIdLivros = (request, response) => {
-    livros.find({ _id: request.params.id })
+    Livro.find({ _id: request.params.id })
         .then((livros) => {
             return response.json(livros)
         })
@@ -26,7 +26,7 @@ exports.getIdLivros = (request, response) => {
 }
 
 exports.postLivros = (request, response) => {
-    livros.create(request.body, (error) => {
+    Livro.create(request.body, (error) => {
         if (error) return response.status(400).json({
             error: true,
             message: 'Erro ao registrar livro, verifique se todos os dados requisitados estão preenchidos corretamente'
@@ -39,7 +39,7 @@ exports.postLivros = (request, response) => {
 }
 
 exports.putLivros = (request, response) => {
-    livros.findOneAndUpdate({ _Id: request.params.id },
+    Livro.findOneAndUpdate({ _Id: request.params.id },
         request.body,
         (error) => {
             if (error) return response.status(400).json({
@@ -54,7 +54,7 @@ exports.putLivros = (request, response) => {
 };
 
 exports.deleteLivros = (request, response) => {
-    livros.findOneAndDelete({ _Id: request.params.id },
+    Livro.findOneAndDelete({ _Id: request.params.id },
         (error) => {
             if (error) return response.status(400).json({
                 error: true,
