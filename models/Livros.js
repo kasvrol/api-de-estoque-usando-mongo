@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const livroSchema = new mongoose.Schema({
+const livro = new mongoose.Schema({
     id: { type: String },
     titulo: { type: String, required: true },
     autor: { type: String, required: true },
@@ -8,4 +8,4 @@ const livroSchema = new mongoose.Schema({
     numeroPaginas: { type: Number },
 })
 
-exports.modules = mongoose.model('livros', livroSchema)
+exports.modules = mongoose.model('livro', livro)
