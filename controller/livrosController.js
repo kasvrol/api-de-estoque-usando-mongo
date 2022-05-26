@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const livros = mongoose.model('livros')
+const livros = mongoose.model('livro')
 
 exports.getLivros = (request, response) => {
     livros.find({}).then((livros) => {
