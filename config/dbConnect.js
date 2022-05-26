@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+require('../controller/livrosController');
 
-const db = mongoose.connect('mongodb://localhost/tresawallethomolog', {
+const db = mongoose.connect('mongodb://localhost/estoqueDeLivros', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
