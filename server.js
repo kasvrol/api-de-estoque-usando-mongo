@@ -1,10 +1,6 @@
-const http = require('http');
-const PORT = 5000;
-const server = http.createServer((request, response) => {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end('Curso de Node')
-});
+const app = require('./app')
+const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Servidor rodando na porta http://localhost:${PORT}`)
 })
